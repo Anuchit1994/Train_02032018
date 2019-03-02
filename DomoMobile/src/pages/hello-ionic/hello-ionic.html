@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="user">
+
+    <div *ngFor="let item of getData">
+      {{item}}
+    </div>
+
+    <ion-item>
+      <ion-label>ใส่ข้อความ</ion-label>
+      <ion-input formControlName="text"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="primary" (click)="post()">Confirm</button>
+
+  </form>
+
+
+</ion-content>

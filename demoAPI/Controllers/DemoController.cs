@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace demoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class DemoController : ControllerBase
     {
         public static List<string> allMember = new List<string>
-         { "Name :Mickey", "Name :Dorarmon" };
+         { "Mickey", "Dorarmon" };
 
         [HttpGet]
         public List<string> Get()
@@ -30,15 +30,15 @@ namespace demoAPI.Controllers
         }
 
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string name)
+        [HttpPost("{name}")]
+        public void Post(string name)
         {
             allMember.Add(name);
         }
 
         // PUT api/values/5
-        [HttpPut("{index}")]
-        public void Put(int index, [FromBody] string name)
+        [HttpPut("{index}/{name}")]
+        public void Put(int index, string name)
         {
             if (allMember[index] != null)
             {
